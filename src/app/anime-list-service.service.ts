@@ -15,6 +15,8 @@ export class AnimeListServiceService {
       fromObject: {
         ...request,
         limit: 10,
+        order_by: 'score',
+        sort: 'desc',
       },
     });
 

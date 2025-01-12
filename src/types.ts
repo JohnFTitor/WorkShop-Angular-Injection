@@ -1,3 +1,5 @@
+import { Signal } from "@angular/core";
+
 export interface ImageData {
   image_url: string | null;
   small_image_url: string | null;
@@ -47,9 +49,9 @@ export type AnimeListResponse = {
 }
 
 export type AnimeColumn = {
-  data: Anime[];
+  data: Signal<Anime[]>;
   type: string;
-  totalCount: number;
+  totalCount: Signal<number>;
 }
 
 export type AnimeTypes = 'tv' | 'movie' | 'ova' | 'special';
