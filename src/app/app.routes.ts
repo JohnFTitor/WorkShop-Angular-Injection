@@ -1,3 +1,7 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { AnimeListComponent } from './anime-list/anime-list.component';
+
+export const routes: Routes = [
+  { path: '', component: AnimeListComponent },
+];
