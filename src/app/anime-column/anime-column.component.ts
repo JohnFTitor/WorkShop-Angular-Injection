@@ -1,10 +1,10 @@
 import { Component, input } from '@angular/core';
 import { AnimeColumn } from '../../types';
-
+import { AnimeCardComponent } from '../anime-card/anime-card.component';
 @Component({
   selector: 'app-anime-column',
   standalone: true,
-  imports: [],
+  imports: [AnimeCardComponent],
   templateUrl: './anime-column.component.html',
 })
 export class AnimeColumnComponent {
