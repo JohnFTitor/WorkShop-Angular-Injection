@@ -20,24 +20,25 @@ export class AnimeListComponent {
   ]);
 
   private createAnimeColumn(type: AnimeTypes): AnimeColumn {
-    const animeListQueryService =
+    const query =
       this.animeListService.getAnimeListQueryService(
         { type, page: 1 },
       );
 
     const data = computed(
       () =>
-        animeListQueryService.data()?.pages.flatMap((page) => page.data) ?? []
+        query.data()?.pages.flatMap((page) => page.data) ?? []
     );
 
     const totalCount = computed(
-      () => animeListQueryService.data()?.pages[0].pagination.items.total ?? 0
+      () => query.data()?.pages[0].pagination.items.total ?? 0
     );
 
     return {
       type,
       data,
       totalCount,
+      query,
     };
   }
 
@@ -46,4 +47,16 @@ export class AnimeListComponent {
       this.animeTypes().map((type) => this.createAnimeColumn(type))
     );
   });
+
+  onScrolledToBottom(type: string) {
+    const column = this.animeColumns().find((column) => column.type === type);
+
+    if (
+      column &&
+      !column.query.isFetchingNextPage() &&
+      column.query.hasNextPage()
+    ) {
+      column.query.fetchNextPage();
+    }
+  }
 }

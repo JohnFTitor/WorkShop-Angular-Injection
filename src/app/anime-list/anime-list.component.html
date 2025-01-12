@@ -3,7 +3,7 @@
   <div class="flex-1 flex flex-row gap-4 p-8 rounded-2xl bg-gray-700 w-full max-w-screen-2xl">
     @for (animeColumn of animeColumns(); track animeColumn.type) {
       <div class="flex-1">
-        <app-anime-column [animeColumn]="animeColumn"></app-anime-column>
+        <app-anime-column [animeColumn]="animeColumn" (scrolledToBottom)="onScrolledToBottom($event)"></app-anime-column>
       </div>
     }
   </div>

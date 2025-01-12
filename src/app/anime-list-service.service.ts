@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable} from '@angular/core';
 import { AnimeListRequest, AnimeListResponse } from '../types';
 import { lastValueFrom, map, Observable } from 'rxjs';
 import { injectInfiniteQuery } from '@tanstack/angular-query-experimental';
@@ -17,6 +17,7 @@ export class AnimeListServiceService {
         limit: 10,
         order_by: 'score',
         sort: 'desc',
+        sfw: true,
       },
     });
 

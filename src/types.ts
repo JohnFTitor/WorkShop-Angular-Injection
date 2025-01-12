@@ -1,4 +1,6 @@
 import { Signal } from "@angular/core";
+import { CreateInfiniteQueryResult } from "@tanstack/angular-query-experimental";
+import { InfiniteData } from "@tanstack/angular-query-experimental";
 
 export interface ImageData {
   image_url: string | null;
@@ -52,6 +54,7 @@ export type AnimeColumn = {
   data: Signal<Anime[]>;
   type: string;
   totalCount: Signal<number>;
+  query: CreateInfiniteQueryResult<InfiniteData<unknown>>
 }
 
 export type AnimeTypes = 'tv' | 'movie' | 'ova' | 'special';
