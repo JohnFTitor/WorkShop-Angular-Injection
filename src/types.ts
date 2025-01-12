@@ -51,3 +51,10 @@ export type AnimeColumn = {
   type: string;
   totalCount: number;
 }
+
+export type AnimeTypes = 'tv' | 'movie' | 'ova' | 'special';
+
+export type AnimeListRequest = {
+  page: number;
+  type: AnimeTypes;
+}
