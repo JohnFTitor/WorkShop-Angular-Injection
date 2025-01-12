@@ -45,3 +45,9 @@ export type AnimeListResponse = {
     }
   }
 }
+
+export type AnimeColumn = {
+  data: Anime[];
+  type: string;
+  totalCount: number;
+}
